@@ -34,7 +34,6 @@ $a = new A;
 echo exec($a->hello), ', World';
 
 // an example of executing a closure property as a method
-
 $a->world = function () {
     return "World";
 };

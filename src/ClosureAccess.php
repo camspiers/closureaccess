@@ -34,22 +34,20 @@ trait ClosureAccess
      */
     public function __get($name)
     {
-        if (method_exists($this, $name)) {
-            if (empty($this->closureMethods[$name])) {
-                if (!(new ReflectionMethod($this, $name))->isPublic()) {
-                    throw new \InvalidArgumentException(sprintf(
-                        "Method %s::%s is not public and can't be accessed though ClosureAccess",
-                        __CLASS__,
-                        $name
-                    ));
-                }
-                
-                $this->closureMethods[$name] = function () use ($name) {
-                    return call_user_func_array([$this, $name], func_get_args());
-                };
-            }
-            
+        if (isset($this->closureMethods[$name])) {
             return $this->closureMethods[$name];
+        } elseif (method_exists($this, $name)) {
+            if (!(new ReflectionMethod($this, $name))->isPublic()) {
+                throw new \InvalidArgumentException(sprintf(
+                    "Method %s::%s is not public and can't be accessed though ClosureAccess",
+                    __CLASS__,
+                    $name
+                ));
+            }
+
+            return $this->closureMethods[$name] = function () use ($name) {
+                return call_user_func_array([$this, $name], func_get_args());
+            };
         }
     }
 }
