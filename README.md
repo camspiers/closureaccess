@@ -18,7 +18,7 @@ namespace Camspiers;
 
 class A {
     use ClosureAccess;
-    protected function hello()
+    public function hello()
     {
         return "Hello";
     }
