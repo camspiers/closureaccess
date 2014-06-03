@@ -41,7 +41,7 @@ trait ClosureAccess
      */
     public function __set($name, $value)
     {
-        $this->$name = $value instanceof \Closure ? $value->bindTo($this, $this) : $value;
+        $this->$name = $value instanceof \Closure ? $value->bindTo($this) : $value;
     }
 
     /**
