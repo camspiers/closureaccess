@@ -5,7 +5,6 @@ namespace Camspiers;
 use ReflectionMethod;
 
 /**
- * Class ClosureAccess
  * @package Camspiers
  */
 trait ClosureAccess
@@ -22,7 +21,7 @@ trait ClosureAccess
      */
     public function __call($name, $args)
     {
-        if (isset($this->$name) && $this->$name instanceof \Closure) {
+        if (isset($this->$name)) {
             $func = $this->$name;
             switch (count($args)) {
                 case 0: return $func();
