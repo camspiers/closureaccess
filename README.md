@@ -21,24 +21,23 @@ No claims are made as to whether you should use this library, it is provided mor
 ## Usage
 
 ```php
-namespace Camspiers;
 
 class A {
-    use ClosureAccess;
+    use Camspiers\ClosureAccess;
     public function hello()
     {
         return "Hello";
     }
 }
 
-function exec($fn) {
+function run($fn) {
     return $fn();
 }
 
 $a = new A;
 
 // an example of accessing a public method via properties and passing it around
-echo exec($a->hello), ', World';
+echo run($a->hello), ', World';
 
 // an example of executing a closure property as a method
 $a->world = function () {

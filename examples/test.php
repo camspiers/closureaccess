@@ -1,18 +1,16 @@
 <?php
 
-namespace Camspiers;
-
 require __DIR__.'/../src/ClosureAccess.php';
 
 class A {
-    use ClosureAccess;
+    use Camspiers\ClosureAccess;
     public function hello($hello)
     {
         return $hello;
     }
 }
 
-function exec($hello, $world) {
+function run($hello, $world) {
     return sprintf('%s, %s!', $hello("Hello"), $world());
 }
 
@@ -22,6 +20,6 @@ $obj->world = function () {
   return "world";
 };
 
-echo exec($obj->hello, $obj->world), PHP_EOL;
+echo run($obj->hello, $obj->world), PHP_EOL;
 echo $obj->hello("Hello") . ', ' . $obj->world() . '!', PHP_EOL;
 
