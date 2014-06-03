@@ -13,13 +13,10 @@ No claims are made as to whether you should use this library, it is provided mor
 
 ## Performance
 
-### Accessing public methods as properties e.g. $obj->methodName (return Closure)
-
-~2.1x slower
-
-### Closures added to objects can be executed like public methods e.g. $obj->closureProp()
-
-~3.1x slower
+* Accessing public methods as properties e.g. $obj->methodName (return Closure)
+ * `~2.1x` slower
+* Closures added to objects can be executed like public methods e.g. $obj->closureProp()
+ * `~3.1x` slower
 
 ## Usage
 
