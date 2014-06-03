@@ -65,7 +65,7 @@ trait ClosureAccess
                 ));
             }
             
-            return $reflectionMethod->getClosure($this);
+            return $this->closureMethods[$name] = $reflectionMethod->getClosure($this);
         }
     }
 }
