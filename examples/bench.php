@@ -25,8 +25,8 @@ function test1Baseline()
 function test1ClosureAccess()
 {
     $obj = new A;
-    $fn = $obj->mul;
     for ($i = 0; $i < TIMES; $i++) {
+        $fn = $obj->mul;
         assert($fn(10, 10) === 100);
     }
 }
@@ -48,16 +48,6 @@ function test2Baseline()
     }
 }
 
-function test2Baseline2()
-{
-    $mul1 = function ($a, $b) {
-        return $a * $b;
-    };
-    for ($i = 0; $i < TIMES; $i++) {
-        assert($mul1(10, 10) === 100);
-    }
-}
-
 function test2ClosureAccess()
 {
     $obj = new A;
@@ -70,7 +60,6 @@ function test2ClosureAccess()
 }
 
 bench\invoke('test2Baseline');
-bench\invoke('test2Baseline2');
 bench\invoke('test2ClosureAccess');
 
 echo 'Testing set property call as public method', PHP_EOL;
