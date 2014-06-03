@@ -5,11 +5,21 @@ The closure access trait brings JavaScript-like functionality to your objects in
 * Public methods on objects can be accessed as properties e.g. $obj->methodName
 * Closures added to objects can be executed like public methods e.g. $obj->closureProp()
 
-No performance testing has been done against this library, and no claims are made as to how practical it is.
+No claims are made as to whether you should use this library, it is provided more as a proof of concept.
 
 ## Installation (with composer)
 
 	composer require camspiers/closureaccess:dev-master
+
+## Performance
+
+### Accessing public methods as properties e.g. $obj->methodName (return Closure)
+
+~2.1x slower
+
+### Closures added to objects can be executed like public methods e.g. $obj->closureProp()
+
+~3.1x slower
 
 ## Usage
 
